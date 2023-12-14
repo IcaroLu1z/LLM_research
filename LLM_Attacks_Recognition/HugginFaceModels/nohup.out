@@ -1,0 +1,160 @@
+cuda:0
+Traceback (most recent call last):
+  File "QAClassification.py", line 115, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 394, in __call__
+    return super().__call__(examples, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 266, in __next__
+    processed = self.infer(next(self.iterator), **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+    data.append(next(self.dataset_iter))
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 183, in __next__
+    processed = next(self.subiterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 426, in preprocess
+    encoded_inputs = self.tokenizer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2798, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2904, in _call_one
+    return self.encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2977, in encode_plus
+    return self._encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 576, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 504, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+Exception: Truncation error: Sequence to truncate too short to respect the provided max_length
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+cuda:0
+Traceback (most recent call last):
+  File "QAClassification.py", line 115, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 394, in __call__
+    return super().__call__(examples, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 266, in __next__
+    processed = self.infer(next(self.iterator), **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+    data.append(next(self.dataset_iter))
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 183, in __next__
+    processed = next(self.subiterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 426, in preprocess
+    encoded_inputs = self.tokenizer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2798, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2904, in _call_one
+    return self.encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2977, in encode_plus
+    return self._encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 576, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 504, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+Exception: Truncation error: Sequence to truncate too short to respect the provided max_length
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.50s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.23s/it]
+Some weights of FalconForQuestionAnswering were not initialized from the model checkpoint at tiiuae/falcon-7b and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+485 485 512
+{'score': 0.10078038275241852, 'start': 3, 'end': 30, 'answer': ' water plant is called SWaT'}
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.21s/it]
+Some weights of FalconForQuestionAnswering were not initialized from the model checkpoint at tiiuae/falcon-7b and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+427 427 512
+Traceback (most recent call last):
+  File "FalconQA.py", line 103, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 394, in __call__
+    return super().__call__(examples, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 266, in __next__
+    processed = self.infer(next(self.iterator), **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+    data.append(next(self.dataset_iter))
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 183, in __next__
+    processed = next(self.subiterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 426, in preprocess
+    encoded_inputs = self.tokenizer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2798, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2904, in _call_one
+    return self.encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2977, in encode_plus
+    return self._encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 576, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 504, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+Exception: Truncation error: Sequence to truncate too short to respect the provided max_length
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.17s/it]
+Some weights of FalconForQuestionAnswering were not initialized from the model checkpoint at tiiuae/falcon-7b and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+427 427 512
+Traceback (most recent call last):
+  File "FalconQA.py", line 103, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 394, in __call__
+    return super().__call__(examples, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 266, in __next__
+    processed = self.infer(next(self.iterator), **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+    data.append(next(self.dataset_iter))
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 183, in __next__
+    processed = next(self.subiterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 426, in preprocess
+    encoded_inputs = self.tokenizer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2798, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2904, in _call_one
+    return self.encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2977, in encode_plus
+    return self._encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 576, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 504, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+Exception: Truncation error: Sequence to truncate too short to respect the provided max_length
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.21s/it]
+Some weights of FalconForQuestionAnswering were not initialized from the model checkpoint at tiiuae/falcon-7b and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+417 417 512
+Traceback (most recent call last):
+  File "FalconQA.py", line 103, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 391, in __call__
+    examples = self._args_parser(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 202, in __call__
+    raise ValueError(f"Unknown arguments {kwargs}")
+ValueError: Unknown arguments {'question': ['Timestamp:  31/12/2015 8:16:58 AM|FIT101: 0.0|LIT101: 813.3956| MV101: 1|P101: 1|P102: 1| AIT201: 192.9633|AIT202: 8.559216|AIT203: 360.241|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 2.003969|FIT301: 0.0|LIT301: 1015.285|MV301: 1|MV302: 1| MV303: 1|MV304: 2|P301: 1|P302: 1|AIT401: 148.808|AIT402: 333.5042|FIT401: 0.0|LIT401: 247.9749|P401: 1|P402: 1|P403: 1|P404: 1|UV401: 1|AIT501: 7.485132|AIT502: 209.3566|AIT503: 268.617|AIT504: 15.57293|FIT501: 0.000897206|FIT502: 0.001152812|FIT503: 0.001024229|FIT504: 0.0|P501: 1|P502: 1|PIT501: 9.885285|PIT502: 0.0|PIT503: 3.636888|FIT601: 0.0|P601: 1|P602: 1|P603: 1', 'Timestamp:  29/12/2015 5:54:50 AM|FIT101: 0.0|LIT101: 814.9265| MV101: 1|P101: 1|P102: 1| AIT201: 258.0108|AIT202: 8.460844|AIT203: 322.5327|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 0.6882643|FIT301: 0.0|LIT301: 1011.359|MV301: 1|MV302: 1| MV303: 1|MV304: 0|P301: 1|P302: 1|AIT401: 148.8032|AIT402: 151.961|FIT401: 1.711466|LIT401: 797.2187|P401: 1|P402: 2|P403: 1|P404: 1|UV401: 2|AIT501: 7.85555|AIT502: 142.9377|AIT503: 259.677|AIT504: 11.88157|FIT501: 1.724686|FIT502: 1.294607|FIT503: 0.7366771|FIT504: 0.3065689|P501: 2|P502: 1|PIT501: 250.9933|PIT502: 0.8970621|PIT503: 189.4066|FIT601: 6.41e-05|P601: 1|P602: 1|P603: 1', 'Timestamp:  31/12/2015 2:45:31 AM|FIT101: 0.0|LIT101: 813.8275| MV101: 1|P101: 1|P102: 1| AIT201: 188.5094|AIT202: 8.622341|AIT203: 321.5073|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 1.827902|FIT301: 0.0|LIT301: 1014.043|MV301: 1|MV302: 1| MV303: 1|MV304: 2|P301: 1|P302: 1|AIT401: 148.8032|AIT402: 243.194|FIT401: 0.0|LIT401: 247.0136|P401: 1|P402: 1|P403: 1|P404: 1|UV401: 1|AIT501: 7.689567|AIT502: 208.5875|AIT503: 266.1818|AIT504: 14.91925|FIT501: 0.000769034|FIT502: 0.000768541|FIT503: 0.000512115|FIT504: 0.0|P501: 1|P502: 1|PIT501: 10.25378|PIT502: 0.0|PIT503: 3.909254|FIT601: 0.0|P601: 1|P602: 1|P603: 1', 'Timestamp:  29/12/2015 6:58:30 AM|FIT101: 2.473817|LIT101: 608.0645| MV101: 2|P101: 1|P102: 1| AIT201: 258.0108|AIT202: 8.456999|AIT203: 321.0972|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 2.090403|FIT301: 0.0|LIT301: 1010.078|MV301: 1|MV302: 1| MV303: 1|MV304: 1|P301: 1|P302: 1|AIT401: 148.8032|AIT402: 153.6529|FIT401: 1.710826|LIT401: 941.2971|P401: 1|P402: 2|P403: 1|P404: 1|UV401: 2|AIT501: 7.856512|AIT502: 144.3989|AIT503: 259.9013|AIT504: 11.4586|FIT501: 1.719944|FIT502: 1.277187|FIT503: 0.7359089|FIT504: 0.3083624|P501: 2|P502: 1|PIT501: 252.3552|PIT502: 0.8169672|PIT503: 190.496|FIT601: 0.0|P601: 1|P602: 1|P603: 1', 'Timestamp:  31/12/2015 3:44:12 AM|FIT101: 0.0|LIT101: 813.9844| MV101: 1|P101: 1|P102: 1| AIT201: 188.99|AIT202: 8.609203|AIT203: 331.2228|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 1.997567|FIT301: 0.0|LIT301: 1015.124|MV301: 1|MV302: 1| MV303: 1|MV304: 2|P301: 1|P302: 1|AIT401: 148.8032|AIT402: 311.7918|FIT401: 0.0|LIT401: 246.9367|P401: 1|P402: 1|P403: 1|P404: 1|UV401: 1|AIT501: 7.637978|AIT502: 243.7324|AIT503: 266.6944|AIT504: 15.22686|FIT501: 0.000897206|FIT502: 0.001152812|FIT503: 0.000896201|FIT504: 0.0|P501: 1|P502: 1|PIT501: 10.25378|PIT502: 0.0|PIT503: 3.941297|FIT601: 0.0|P601: 1|P602: 1|P603: 1', 'Timestamp:  30/12/2015 6:11:34 PM|FIT101: 2.636198|LIT101: 724.5667| MV101: 2|P101: 2|P102: 1| AIT201: 202.2238|AIT202: 8.50987|AIT203: 325.5319|FIT201: 2.462307| MV201: 2| P201: 1| P202: 1|P203: 2| P204: 1|P205: 2|P206: 1|DPIT301: 1.930341|FIT301: 0.0|LIT301: 962.1732|MV301: 1|MV302: 1| MV303: 1|MV304: 1|P301: 1|P302: 1|AIT401: 148.7695|AIT402: 150.423|FIT401: 1.733124|LIT401: 986.7855|P401: 1|P402: 2|P403: 1|P404: 1|UV401: 2|AIT501: 7.779287|AIT502: 143.6298|AIT503: 271.6291|AIT504: 16.30351|FIT501: 1.745578|FIT502: 1.292046|FIT503: 0.7295074|FIT504: 0.3064407|P501: 2|P502: 1|PIT501: 246.3311|PIT502: 1.569859|PIT503: 185.2089|FIT601: 6.41e-05|P601: 1|P602: 1|P603: 1', 'Timestamp:  31/12/2015 9:25:31 AM|FIT101: 0.0|LIT101: 812.8461| MV101: 1|P101: 1|P102: 1| AIT201: 193.5722|AIT202: 8.548321|AIT203: 365.1115|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 2.035982|FIT301: 0.0|LIT301: 1015.845|MV301: 1|MV302: 1| MV303: 1|MV304: 2|P301: 1|P302: 1|AIT401: 148.8128|AIT402: 330.8895|FIT401: 0.0|LIT401: 247.3212|P401: 1|P402: 1|P403: 1|P404: 1|UV401: 1|AIT501: 7.463984|AIT502: 198.3594|AIT503: 269.4501|AIT504: 15.68828|FIT501: 0.001025378|FIT502: 0.001152812|FIT503: 0.001024229|FIT504: 0.0|P501: 1|P502: 1|PIT501: 9.805178|PIT502: 0.0|PIT503: 3.476673|FIT601: 0.0|P601: 1|P602: 1|P603: 1', 'Timestamp:  29/12/2015 8:32:02 PM|FIT101: 0.0|LIT101: 730.6901| MV101: 1|P101: 2|P102: 1| AIT201: 245.2256|AIT202: 8.404448|AIT203: 337.6314|FIT201: 2.469228| MV201: 2| P201: 1| P202: 1|P203: 2| P204: 1|P205: 2|P206: 1|DPIT301: 19.98207|FIT301: 2.201838|LIT301: 799.1541|MV301: 1|MV302: 2| MV303: 1|MV304: 1|P301: 1|P302: 2|AIT401: 148.8032|AIT402: 153.4735|FIT401: 1.714158|LIT401: 825.4807|P401: 1|P402: 2|P403: 1|P404: 1|UV401: 2|AIT501: 7.809729|AIT502: 145.8857|AIT503: 272.9428|AIT504: 13.6888|FIT501: 1.729428|FIT502: 1.271935|FIT503: 0.7359089|FIT504: 0.3065048|P501: 2|P502: 1|PIT501: 250.0801|PIT502: 1.265498|PIT503: 188.7817|FIT601: 6.41e-05|P601: 1|P602: 1|P603: 1', 'Timestamp:  28/12/2015 4:54:07 PM|FIT101: 0.0|LIT101: 677.5026| MV101: 1|P101: 2|P102: 1| AIT201: 261.6957|AIT202: 8.364394|AIT203: 331.3509|FIT201: 2.447442| MV201: 2| P201: 1| P202: 1|P203: 2| P204: 1|P205: 2|P206: 1|DPIT301: 19.75159|FIT301: 2.209653|LIT301: 803.3597|MV301: 1|MV302: 2| MV303: 1|MV304: 1|P301: 1|P302: 2|AIT401: 148.808|AIT402: 154.4476|FIT401: 1.734149|LIT401: 998.3209|P401: 1|P402: 2|P403: 1|P404: 1|UV401: 2|AIT501: 7.860036|AIT502: 144.9885|AIT503: 268.6491|AIT504: 13.45809|FIT501: 1.744553|FIT502: 1.273601|FIT503: 0.7288673|FIT504: 0.306761|P501: 2|P502: 1|PIT501: 246.5874|PIT502: 1.601897|PIT503: 185.9299|FIT601: 0.000128152|P601: 1|P602: 1|P603: 1', 'Timestamp:  31/12/2015 5:01:30 AM|FIT101: 0.0|LIT101: 813.3956| MV101: 1|P101: 1|P102: 1| AIT201: 193.3799|AIT202: 8.60664|AIT203: 341.8611|FIT201: 0.0| MV201: 1| P201: 1| P202: 1|P203: 1| P204: 1|P205: 1|P206: 1|DPIT301: 2.003969|FIT301: 0.0|LIT301: 1015.485|MV301: 1|MV302: 1| MV303: 1|MV304: 2|P301: 1|P302: 1|AIT401: 148.808|AIT402: 327.07|FIT401: 0.0|LIT401: 246.7829|P401: 1|P402: 1|P403: 1|P404: 1|UV401: 1|AIT501: 7.583184|AIT502: 245.5268|AIT503: 267.3033|AIT504: 15.41912|FIT501: 0.000897206|FIT502: 0.001152812|FIT503: 0.000896201|FIT504: 0.0|P501: 1|P502: 1|PIT501: 10.10959|PIT502: 0.0|PIT503: 3.829146|FIT601: 0.0|P601: 1|P602: 1|P603: 1'], 'top_k': 1}

@@ -1,0 +1,34 @@
+nohup: ignoring input
+cuda:0
+Traceback (most recent call last):
+  File "QAClassification.py", line 115, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 394, in __call__
+    return super().__call__(examples, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 266, in __next__
+    processed = self.infer(next(self.iterator), **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+    data.append(next(self.dataset_iter))
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 183, in __next__
+    processed = next(self.subiterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/question_answering.py", line 426, in preprocess
+    encoded_inputs = self.tokenizer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2798, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2904, in _call_one
+    return self.encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 2977, in encode_plus
+    return self._encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 576, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/tokenization_utils_fast.py", line 504, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+Exception: Truncation error: Sequence to truncate too short to respect the provided max_length

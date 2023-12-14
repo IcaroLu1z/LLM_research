@@ -1,0 +1,15 @@
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.90      0.36      0.51       100
+      Attack       0.60      0.96      0.74       100
+
+    accuracy                           0.66       200
+   macro avg       0.75      0.66      0.63       200
+weighted avg       0.75      0.66      0.63       200
+
+Confusion Matrix:
+[[36 64]
+ [ 4 96]]
+Execution time: 0:8:33.27 (h:mm:ss)

@@ -1,0 +1,19 @@
+nohup: ignoring input
+2023-10-19 14:56:48.949859: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.68s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.69s/it]
+Setting `pad_token_id` to `eos_token_id`:11 for open-end generation.
+Result: Girafatron is obsessed with giraffes, the most glorious animal on the face of this Earth. 
+Giraftron believes all other animals are irrelevant when compared to the glorious majesty of the giraffe.
+Daniel: Hello, Girafatron!
+Girafatron: Hey Daniel, what’s up?
+Daniel: Girafatron, why do you worship giraffes? Why giraffes?
+Girafatron: Why not giraffes? Giraffes are awesome!
+Daniel: Giraffes aren’t awesome, giraffes are hideous!
+Girafatron: Giraffes are not hideous! You can’t even see giraffes!
+Daniel: You’re wrong! Giraffes are hideous! Everyone knows giraffes are hideous! 
+That’s why giraffes were never popularized until giraffe porn became legal!
+Girafatron: Giraffes
