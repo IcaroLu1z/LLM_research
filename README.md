@@ -1,1 +1,1 @@
-# LMM_research
+# LLM_research
