@@ -1,15 +1,7 @@
 import pandas as pd
 import time
 import requests
-
-#---------------------------------------------------------------------------------------------------------------------
-# Configuração da API OpenAI
-KEY = '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'
-URL = "https://api.openai.com/v1/chat/completions"  # Atualizado para o endpoint correto
-HEADERS = {
-    "Authorization": f"Bearer {KEY}",
-    "Content-Type": "application/json"
-}
+from config import URL, HEADERS, KEY
 
 SEMENTE = 42
 #---------------------------------------------------------------------------------------------------------------------
@@ -31,7 +23,7 @@ with open(paper_path, "r") as file:
 
 #---------------------------------------------------------------------------------------------------------------------
 # Seleção de exemplos few-shot
-sample_size = 10
+sample_size = 5
 exemplos_attacks = data_attack[data_attack['Normal/Attack'] == 'Attack'].sample(sample_size, random_state=SEMENTE)
 exemplos_normais = data_attack[data_attack['Normal/Attack'] == 'Normal'].sample(sample_size, random_state=SEMENTE)
 
