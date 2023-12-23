@@ -1,20 +1,15 @@
-import seaborn as sns
-import os
-import re
+import os, re, time, torch, transformers, pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
-import transformers
-import torch
-import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 from optimum.bettertransformer import BetterTransformer
-import time
 
 #---------------------------------------------------------------------------------------------------------------------
 # Chose the model
 #model_id = "mistralai/Mistral-7B-v0.1"
-model_id = "meta-llama/Llama-2-7b-chat-hf"
-#model_id = "tiiuae/falcon-7b"
+#model_id = "meta-llama/Llama-2-7b-chat-hf"
+model_id = "tiiuae/falcon-7b"
 #model_id = "01-ai/Yi-6B"
 #model_id = "NousResearch/Yarn-Mistral-7b-128k"
 
@@ -78,7 +73,7 @@ tuples = []
 for row in sample.itertuples(index=False):
     data_tuple = tuple(row)
     attributes = [f"{column}: {value}" for column, value in zip(sample.columns, data_tuple)]
-    data_string = " | ".join(attributes) + "\n" + paper
+    data_string = "The following text contains the physical properties related to a water plant and the water treatment process, as well as network traffic in the testbed. The data of both physical properties and network traffic contains attacks in Cyber Physical Systems: " + " | ".join(attributes) + "\nThe data identifies the text with 'Attack' or 'Normal'?"
     tuples.append(data_string)
 
 #---------------------------------------------------------------------------------------------------------------------
@@ -96,7 +91,7 @@ model_.to(device)
 
 #---------------------------------------------------------------------------------------------------------------------
 pipeline = transformers.pipeline(
-    "zero-shot-classification",
+    "question-answering",
     model=model_,
     tokenizer=tokenizer,
     framework="pt",
@@ -110,10 +105,11 @@ pipeline = transformers.pipeline(
 start_time = time.time()
 
 sequences = pipeline(
-    sequences = tuples,
-    candidate_labels = ['Normal', 'Attack'],
+    question = tuples,
+    context = context,
+    #max_length=ml,
 )
-
+   
 #---------------------------------------------------------------------------------------------------------------------
 end_time = time.time()
 execution_time = end_time - start_time
@@ -124,14 +120,20 @@ minutes, seconds = divmod(remainder, 60)
 predicted_labels = []
 true_labels = []
 
-for seq, y_p in zip(sequences, y):
-    formatted_scores = [f"{score:.2f}" for score in seq['scores']]
-    predicted_label = seq['labels'][0]  # Taking the top predicted label
-    true_labels.append(y_p)
-    predicted_labels.append(predicted_label)
-    print(f"Resultado: {predicted_label} || Scores: {formatted_scores} || True: {y_p}")
+for result, y_p in zip(sequences, y):
+    score = result['score']
+    start = result['start']
+    end = result['end']
+    answer = result['answer']
 
-clf_report = classification_report(y_true=true_labels, y_pred=predicted_labels, target_names=['Normal', 'Attack'])
+    formatted_score = f"{score:.2f}"
+    true_labels.append(y_p)
+    predicted_labels.append(answer)
+
+    print(f"Resultado: {answer} || Score: {formatted_score} || True: {y_p} || Start: {start} || End: {end}")
+
+
+'''clf_report = classification_report(y_true=true_labels, y_pred=predicted_labels, target_names=['Normal', 'Attack'])
 # Using confusion_matrix
 cm = confusion_matrix(true_labels, predicted_labels, labels=['Attack', 'Normal'])
 
@@ -171,4 +173,4 @@ plt.tight_layout()
 figName = f'ZSComparison_{model_name}__{str(sample_size*2)}_Samples.png'
 plt.savefig(f'/media/work/icarovasconcelos/LLM_Attacks_Recognition/HugginFaceModels/{model_family}/' + figName)
 
-print("Concluido.")
+print("Concluido.")'''
