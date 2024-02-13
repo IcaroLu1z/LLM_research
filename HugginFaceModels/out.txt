@@ -1,0 +1,54 @@
+nohup: ignoring input
+cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]
+The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
+Token indices sequence length is longer than the specified maximum sequence length for this model (6873 > 4096). Running this sequence through the model will result in indexing errors
+This is a friendly reminder - the current text generation call will exceed the model's predefined maximum length (4096). Depending on the model, you may observe exceptions, performance degradation, or nothing at all.
+Traceback (most recent call last):
+  File "QAClass.py", line 107, in <module>
+    sequences = pipeline(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/text_generation.py", line 208, in __call__
+    return super().__call__(text_inputs, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1121, in __call__
+    outputs = list(final_iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/pt_utils.py", line 125, in __next__
+    processed = self.infer(item, **self.params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/base.py", line 1046, in forward
+    model_outputs = self._forward(model_inputs, **forward_params)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/pipelines/text_generation.py", line 271, in _forward
+    generated_sequence = self.model.generate(input_ids=input_ids, attention_mask=attention_mask, **generate_kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/generation/utils.py", line 1719, in generate
+    return self.sample(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/generation/utils.py", line 2801, in sample
+    outputs = self(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 1034, in forward
+    outputs = self.model(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 922, in forward
+    layer_outputs = decoder_layer(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 672, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/optimum/bettertransformer/models/decoder_models.py", line 426, in forward
+    return llama_forward(self, *args, **kwargs)
+  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/optimum/bettertransformer/models/attention.py", line 635, in llama_forward
+    key_states = torch.cat([past_key_value[0], key_states], dim=2)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 60.00 MiB. GPU 0 has a total capacty of 23.70 GiB of which 42.31 MiB is free. Including non-PyTorch memory, this process has 23.64 GiB memory in use. Of the allocated memory 20.77 GiB is allocated by PyTorch, and 1.71 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
