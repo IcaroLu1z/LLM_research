@@ -1,7 +1,7 @@
 import pandas as pd
 import time
 import requests
-from config import URL, HEADERS, KEY
+from config import URL, HEADERS
 
 SEMENTE = 42
 #---------------------------------------------------------------------------------------------------------------------

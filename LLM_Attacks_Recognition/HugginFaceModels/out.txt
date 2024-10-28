@@ -1,23 +1,0 @@
-nohup: ignoring input
-cuda:0
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.32s/it]
-The BetterTransformer implementation does not support padding during training, as the fused kernels do not support attention masks. Beware that passing padded batched data during training may result in unexpected outputs. Please refer to https://huggingface.co/docs/optimum/bettertransformer/overview for more details.
-Traceback (most recent call last):
-  File "QAClass.py", line 90, in <module>
-    model_.to(device)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/transformers/modeling_utils.py", line 2271, in to
-    return super().to(*args, **kwargs)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in to
-    return self._apply(convert)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
-    module._apply(fn)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
-    module._apply(fn)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
-    module._apply(fn)
-  [Previous line repeated 2 more times]
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 833, in _apply
-    param_applied = fn(param)
-  File "/media/work/icarovasconcelos/env/icisco/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1158, in convert
-    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 158.00 MiB. GPU 0 has a total capacty of 23.70 GiB of which 105.31 MiB is free. Process 257617 has 21.36 GiB memory in use. Including non-PyTorch memory, this process has 2.21 GiB memory in use. Of the allocated memory 1.40 GiB is allocated by PyTorch, and 6.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

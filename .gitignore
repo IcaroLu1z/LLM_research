@@ -1,5 +1,6 @@
-**/env
-**/SWaT
+/SWaT/
+/IoT_Bot/
+/TON_IoT/
 config.py
 nohup.out
 LLM_Attacks_Recognition/ChatGPT/__pycache__/config.cpython-38.pyc
